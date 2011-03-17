@@ -1,0 +1,30 @@
+;; Problema 1
+;; Capitão Caverna S.A.
+;;
+;; maxf(x) = 50x + 70y + 100z
+;; sendo:
+;; x a quantidade de jangadas. x <= 4
+;; y a quantidade de canoa. y <= 8
+;; z a quantidade de arcas. z <= 3
+;; 
+;; Cada embarcação precisa de um capitão.
+;; A jangada precisa de 1 tripulante, a canoa
+;; 2 e a arca 3.
+;;
+;; assim:
+;; x + y + z <= 10
+;; x + 2y + 3z <= 18
+;;
+;; Modelagem
+;;
+;; Serão necessarios 3 genes.
+;; Cada individuo deve obedecer as restrições.
+;;
+
+;; função de avaliação
+(defn f
+  [x y z]
+  (apply + [(* 50 x) (* 70 y) (* 100 z)])
+)
+
+(println (f 2 3 1))
