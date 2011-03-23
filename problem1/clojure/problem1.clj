@@ -1,6 +1,8 @@
 ;; Problema 1
 ;; Capitão Caverna S.A.
 ;;
+;; Abordagem 1
+;;
 ;; maxf(x) = 50x + 70y + 100z
 ;; sendo:
 ;; x a quantidade de jangadas. x <= 4
@@ -17,14 +19,37 @@
 ;;
 ;; Modelagem
 ;;
-;; Serão necessarios 3 genes.
+;; Serão necessarios 3 genes do tipo inteiro.
 ;; Cada individuo deve obedecer as restrições.
-;;
+;; 
 
 ;; função de avaliação
 (defn f
   [x y z]
-  (apply + [(* 50 x) (* 70 y) (* 100 z)])
-)
+  (apply + [(* 50 x) (* 70 y) (* 100 z)]))
 
-(println (f 2 3 1))
+(defn new_individual
+  []
+  {"x" (rand-int 18)
+   "y" (rand-int 9)
+   "z" (rand-int 6)})
+
+(defn is_possible
+  [individual]
+  (and (= (+ (individual "x")(individual "y")(individual "z") ) 10) 
+       (= (+ (individual "x") (*(individual "y") 2))(*(individual "z") 3) 18)))
+
+(defn generate_individual
+  []
+  (loop [individual (new_individual)]
+    (if-not(is_possible individual)
+      (recur (new_individual)))))
+
+(defn generate_population
+  []
+  ((def my-population [])
+    (for [x (range 100)]
+      (println (generate_individual)))))
+
+(def population (generate_population))
+
