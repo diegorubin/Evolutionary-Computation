@@ -23,5 +23,5 @@
 require 'lib/individual'
 require 'lib/population'
 
-population = Population.generate
-population.show
+population = Population.new
+population.show(true)
