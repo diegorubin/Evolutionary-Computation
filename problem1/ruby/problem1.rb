@@ -25,3 +25,8 @@ require 'lib/population'
 
 population = Population.new
 population.show(true)
+
+population.number_of_populations.times do
+  population.new_generation
+  population.show(true)
+end

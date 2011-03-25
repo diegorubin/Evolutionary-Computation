@@ -3,7 +3,9 @@
 # 000|0000|00
 
 class Individual
+  attr_accessor :evaluation
   attr_reader :chromosome
+
   def initialize(chromosome)
     @chromosome = chromosome
     arrange_chromosome unless possible?
@@ -48,7 +50,8 @@ class Individual
 
   def mutation
     i = rand(9)
-    @chromosome[i] = (@chromosome[i] == "0" ? "1" : "0")
+    @chromosome[i,1] = (@chromosome[i,1] == "0" ? "1" : "0")
+    arrange_chromosome unless possible?
   end
   
   private
