@@ -23,10 +23,10 @@
 require 'lib/individual'
 require 'lib/population'
 
-population = Population.new
-population.show(true)
+population = Population.new(1000,1000)
+population.show
 
 population.number_of_populations.times do
   population.new_generation
-  population.show(true)
+  population.show
 end

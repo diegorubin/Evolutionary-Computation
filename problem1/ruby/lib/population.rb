@@ -58,7 +58,8 @@ class Population
         @roulette.each{|k,v| father2 = v if k.include?(father2)}
         son = father1.crossover(father2)
       else
-        son = father1.mutation
+        son = father1.dup
+        son.mutation
       end
       @individuals << son
     end
