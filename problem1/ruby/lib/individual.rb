@@ -3,6 +3,7 @@
 # 000|0000|00
 
 class Individual
+  attr_reader :chromosome
   def initialize(chromosome)
     @chromosome = chromosome
   end
@@ -27,6 +28,21 @@ class Individual
 
   def z
     @chromosome[7..8].to_i(2)
+  end
+
+  def crossover(father)
+    son1 = ''
+    son2 = ''
+    9.times do |i| 
+      if([true,false][rand(2)])
+        son1 += @chromosome[i,1]
+        son2 += father.chromosome[i,1]
+      else
+        son2 += @chromosome[i,1]
+        son1 += father.chromosome[i,1]
+      end
+    end
+    Individual.new(son1)
   end
 end
 

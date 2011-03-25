@@ -18,4 +18,13 @@ describe Individual do
     individual.z.should == 2
     individual.f.should == 610
   end
+
+  it 'should generate a son' do
+    f1 = Individual.new('000000000')
+    f2 = Individual.new('000000010')
+
+    son = f1.crossover(f2)
+    [0,2].include?(son.z).should be_true
+  end
+
 end
