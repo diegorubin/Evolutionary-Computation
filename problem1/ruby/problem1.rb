@@ -23,12 +23,12 @@
 require 'lib/individual'
 require 'lib/population'
 
-population = Population.new(1000,1000)
+population = Population.new(1000,1)
 population.show
 
 population.number_of_populations.times do
   population.new_generation
-  population.show
+  population.show(true)
 end
 
 individual = population.best

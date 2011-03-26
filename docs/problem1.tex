@@ -56,13 +56,25 @@ O aluguel é por diárias e a Capitão Caverna lucra R\$ 50 por jangada, R\$ 70 por
 maximiza o lucro.
 
 
-\section{CD-ROMs and Printed Proceedings}
+\section{Função Objetivo}
 
-In some conferences, the papers are published on CD-ROM while only the
-abstract is published in the printed Proceedings. In this case, authors are
-invited to prepare two final versions of the paper. One, complete, to be
-published on the CD and the other, containing only the first page, with
-abstract and ``resumo'' (for papers in Portuguese).
+O principal problema quando modelamos um algoritmo genético é encontrar a função
+que descreverá o quão um individuo é bom em uma determinada população. Esta será
+a função que avaliará cada individuo em busca do melhor.
+
+A função que será utilizada neste problema é $f(x,y,z)=50x + 70y + 100z$, onde 
+$x$ é o número de jangadas utilizadas, $y$ o número de supernacoa e $z$ o número de 
+arcas.
+
+\section{Restrições}
+
+Não podemos adotar qualquer valor no plano dos números reais. Qualquer problema
+que queiramos adotar um Algoritmo Genético deve conter algumas restrições de 
+valores possíveis para a função objetivo.
+
+Para este problema adotaremos as seguintes restrições:
+
+$x <= 4; y <= 8; z <= 3$
 
 \section{Sections and Paragraphs}
 
