@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+
+%\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc}  
+
+     
+\sloppy
+
+\title{Buscando Valor Máximo de Uma Função Utilizando \\Algoritimos Genéticos}
+
+\author{Diego Rubin\inst{1}}
+
+
+\address{Departamento de Matemática Aplicada e Computação \\
+  - Universidade Estadual Paulista "Julio de Mesquita Filho"
+  (UNESP)\\
+  Rio Claro -- SP -- Brazil
+  \email{\{rubin.diego\}@gmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{resumo} 
+  Este artigo tem como objetivo mostrar os resultados obtidos para um
+  problema de maximização de uma função utilizando uma técnica de 
+  programação chamado de Algoritimos Genéticos.
+\end{resumo}
+
+
+\section{Introdução}
+
+O principal propósito de um programa escrito utilizando Algoritimo Genético
+é encontrar um valor, máximo ou mínimo, para uma função, que damos o
+nome de função objetivo.
+Será mostrado neste artigo um problema de maximização e como a técnica
+do foi empregada para encontrar os valores das variaveis que chegam
+a um bom valor para a função objetivo.
+
+\section{O Problema} \label{sec:firstpage}
+
+O Problema que iremos abordar é o seguinte:
+
+A Capitão Caverna S.A., localizada em Pedra Lascada, aluga 3 tipos de barcos para
+passeios marítimos: jangadas, supercanoas e arcas com cabine. A companhia fornece
+juntamente com o barco um capitão para navegá-lo e uma tripulação que varia de acordo com a
+embarcação: uma para jangadas, duas para supercanoas e três para arcas. A companhia tem 4
+jangadas, 8 supercanoas e 3 arcas e em seu corpo de funcionários: 10 capitães e 18 tripulantes.
+O aluguel é por diárias e a Capitão Caverna lucra R\$ 50 por jangada, R\$ 70 por supercanoa e R\$
+100 por arca. Faça um modelo de algoritmo genético que determine o esquema de aluguel que
+maximiza o lucro.
+
+
+\section{CD-ROMs and Printed Proceedings}
+
+In some conferences, the papers are published on CD-ROM while only the
+abstract is published in the printed Proceedings. In this case, authors are
+invited to prepare two final versions of the paper. One, complete, to be
+published on the CD and the other, containing only the first page, with
+abstract and ``resumo'' (for papers in Portuguese).
+
+\section{Sections and Paragraphs}
+
+Section titles must be in boldface, 13pt, flush left. There should be an extra
+12 pt of space before each title. Section numbering is optional. The first
+paragraph of each section should not be indented, while the first lines of
+subsequent paragraphs should be indented by 1.27 cm.
+
+\subsection{Subsections}
+
+The subsection titles must be in boldface, 12pt, flush left.
+
+\section{Figures and Captions}\label{sec:figs}
+
+
+Figure and table captions should be centered if less than one line
+(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
+both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
+be Helvetica, 10 point, boldface, with 6 points of space before and after each
+caption.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\textwidth]{fig1.jpg}
+\caption{A typical figure}
+\label{fig:exampleFig1}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{fig2.jpg}
+\caption{This figure is an example of a figure caption taking more than one
+  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
+\label{fig:exampleFig2}
+\end{figure}
+
+In tables, try to avoid the use of colored or shaded backgrounds, and avoid
+thick, doubled, or unnecessary framing lines. When reporting empirical data,
+do not use more decimal digits than warranted by their precision and
+reproducibility. Table caption must be placed before the table (see Table 1)
+and the font used must also be Helvetica, 10 point, boldface, with 6 points of
+space before and after each caption.
+
+\begin{table}[ht]
+\centering
+\caption{Variables to be considered on the evaluation of interaction
+  techniques}
+\label{tab:exTable1}
+\includegraphics[width=.7\textwidth]{table.jpg}
+\end{table}
+
+\section{Images}
+
+All images and illustrations should be in black-and-white, or gray tones,
+excepting for the papers that will be electronically available (on CD-ROMs,
+internet, etc.). The image resolution on paper should be about 600 dpi for
+black-and-white images, and 150-300 dpi for grayscale images.  Do not include
+images with excessive resolution, as they may take hours to print, without any
+visible difference in the result. 
+
+\section{References}
+
+Bibliographic references must be unambiguous and uniform.  We recommend giving
+the author names references in brackets, e.g. \cite{knuth:84},
+\cite{boulic:91}, and \cite{smith:99}.
+
+The references must be listed using 12 point font size, with 6 points of space
+before each reference. The first line of each reference should not be
+indented, while the subsequent should be indented by 0.5 cm.
+
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
+
+\end{document}

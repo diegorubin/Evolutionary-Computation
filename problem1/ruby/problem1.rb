@@ -30,3 +30,7 @@ population.number_of_populations.times do
   population.new_generation
   population.show
 end
+
+individual = population.best
+puts "f(x)=#{individual.f}"
+puts "x = #{individual.x}, y = #{individual.y}, z = #{individual.z}"

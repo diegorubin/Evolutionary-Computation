@@ -5,8 +5,8 @@ class Population
   attr_reader :number_of_individuals, :number_of_populations
   def initialize(number_of_individuals = 100, number_of_populations = 100 )
     @generation = 1
-    @crossover_percentage = 80
-    @mutation_percentage = 20
+    @crossover_percentage = 90
+    @mutation_percentage = 10
 
     @sum_of_fitness = 0
 
@@ -63,6 +63,18 @@ class Population
       end
       @individuals << son
     end
+  end
+
+  def best
+    f = 0
+    individual = nil
+    @individuals.each do |i| 
+      if(i.f > f)
+        individual = i
+        f = i.f
+      end
+    end
+    individual
   end
 
   private
