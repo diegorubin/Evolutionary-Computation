@@ -56,9 +56,6 @@ class Individual
   
   private
   def arrange_chromosome
-    @chromosome[1..2] = "00" if x > 4
-    @chromosome[4..6] = "000" if y > 8
-    
     until possible?
       @chromosome[rand(9)] = "0"
     end
