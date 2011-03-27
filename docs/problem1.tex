@@ -63,7 +63,7 @@ que descreverá o quão um individuo é bom em uma determinada população. Esta será
 a função que avaliará cada individuo em busca do melhor.
 
 A função que será utilizada neste problema é $f(x,y,z)=50x + 70y + 100z$, onde 
-$x$ é o número de jangadas utilizadas, $y$ o número de supernacoa e $z$ o número de 
+$x$ é o número de jangadas utilizadas, $y$ o número de supercanoa e $z$ o número de 
 arcas.
 
 \section{Restrições}
@@ -72,9 +72,52 @@ Não podemos adotar qualquer valor no plano dos números reais. Qualquer problema
 que queiramos adotar um Algoritmo Genético deve conter algumas restrições de 
 valores possíveis para a função objetivo.
 
-Para este problema adotaremos as seguintes restrições:
+Para este problema adotaremos as seguintes restrições: 
+$x <= 4; y <= 8; z <= 3$: Por causa dos números disponíveis de cada imbarcação;
+$x + y + z <= 10$: Existem apenas 10 capitães e é necessário um para cada embarcação;
+$x + 2y + 3z <= 18$: Existem 18 tripulantes disponíveis, sendo que um é necessário para a jangada,
+dois para a supercanoa e três para arcas.
 
-$x <= 4; y <= 8; z <= 3$
+\section{Representação do Cromossomo}
+
+Os valores das variáveis estão relacionado com a quantidade de embercações utilizadas,
+portanto os valores que serão utilizados são inteiros. Será utilizado apenas um cromossomo
+composto por três genes.
+
+Uma representação binária será adotada neste experimento, sendo os três primeiros bits
+representando o valor x, os próximos 5 bits para representar o valor y e os últimos
+2 bits para representar o valor de z, totalizando 9 bits.
+
+\section{Operações}
+
+Serão adotados dois tipos de operações entre os individuos da população, a operação de
+Crossover, onde dois individuos trocam cromossomos gerando um filho e a operação de 
+Mutação, onde um individuo gera um filho.
+
+O Crossover utilizado será do tipo uniforme, onde uma máscara é criada aleatoriamente,
+funcionando da seguinte forma: se a máscara em uma determinada posição contiver o valor '1',
+o filho receberá o valor do pai 1, senão o filho recebe o valor do pai 2.
+
+A Mutação funcionará da seguinte forma, uma posição do cromossomo é escolhida aleatoriamente
+e seu valor é invertido.
+
+Estas operações podem gerar filhos que impossíveis, ou seja, que não obedecem as restrições
+impostas, quando isso acontece os genes são arrumados, uma posição aleatória do gene tem seu valor trocado 
+até ter um valor possível.
+
+\section{Resultados}\label{sec:figs}
+
+Após varias execuções do programa foi possível perceber que os individuos sempre caminham para um 
+mesmo valor. Nas primeiras execuções foram utilizados 1000 individuos em 1000 gerações geradas,
+porém foi possível concluir que após a 30ª geração, a população já estavam ficando constantes.
+
+\begin{figure}(200,300)
+\centering
+\includegraphics[width=.5\textwidth]{generation1.png}
+\caption{Gráfico da primeira geração.}
+\end{figure}
+
+
 
 \section{Sections and Paragraphs}
 
@@ -87,7 +130,7 @@ subsequent paragraphs should be indented by 1.27 cm.
 
 The subsection titles must be in boldface, 12pt, flush left.
 
-\section{Figures and Captions}\label{sec:figs}
+\section{Figures and Captions}
 
 
 Figure and table captions should be centered if less than one line
@@ -101,14 +144,6 @@ caption.
 \includegraphics[width=.5\textwidth]{fig1.jpg}
 \caption{A typical figure}
 \label{fig:exampleFig1}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.3\textwidth]{fig2.jpg}
-\caption{This figure is an example of a figure caption taking more than one
-  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
-\label{fig:exampleFig2}
 \end{figure}
 
 In tables, try to avoid the use of colored or shaded backgrounds, and avoid
