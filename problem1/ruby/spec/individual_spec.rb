@@ -28,12 +28,6 @@ describe Individual do
   end
 
   it 'should dont generate a individual impossible' do
-    individual = Individual.new('111000000')
-    individual.x.should == 4
-    
-    individual = Individual.new('000111100')
-    individual.y.should == 8
-    
     individual = Individual.new('011011101')
     individual.should be_possible
 
