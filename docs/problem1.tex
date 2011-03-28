@@ -114,6 +114,11 @@ Estas operações podem gerar filhos que impossíveis, ou seja, que não obedecem as
 impostas, quando isso acontece os genes são arrumados, uma posição aleatória do gene tem seu valor trocado 
 até ter um valor possível.
 
+A seleção dos individuos para o cruzamento, ou para mutação, é feito através do método da roleta
+viciada. São somados todas as aptidões da população, após isso uma série de intervalos é criado
+de acordo com a porcentagem da aptidão deste individuo entre a somatória das aptidões, sendo esta
+a chance do mesmo ser escolhido para procriar.
+
 \section{Resultados}\label{sec:figs}
 
 Após varias execuções do programa foi possível perceber que os individuos sempre caminham para um 
@@ -142,15 +147,7 @@ Após executar o programa, o resultado obtido foram os valores, $x = 4, y = 4, z 
 
 \section{References}
 
-Bibliographic references must be unambiguous and uniform.  We recommend giving
-the author names references in brackets, e.g. \cite{knuth:84},
-\cite{boulic:91}, and \cite{smith:99}.
-
-The references must be listed using 12 point font size, with 6 points of space
-before each reference. The first line of each reference should not be
-indented, while the subsequent should be indented by 0.5 cm.
-
 \bibliographystyle{sbc}
-\bibliography{sbc-template}
+\bibliography{problem1}
 
 \end{document}
