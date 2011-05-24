@@ -34,18 +34,18 @@
 
 \begin{resumo} 
   Este artigo tem como objetivo mostrar os resultados obtidos para um
-  problema de maximização de uma função, utilizando uma técnica de 
-  programação chamada de Algoritmos Genéticos.
+  problema de maximização de uma função utilizando uma técnica de 
+  programação chamado de Algoritmos Genéticos.
 \end{resumo}
 
 
 \section{Introdução}
 
-O principal propósito de um programa escrito utilizando Algoritmo Genético
+O principal propósito de um programa escrito utilizando Algoritimo Genético
 é encontrar um valor, máximo ou mínimo, para uma função, que damos o
 nome de função objetivo.
 Será mostrado neste artigo um problema de maximização e como a técnica
-do Algoritmo Genético foi empregado para encontrar os valores das variáveis que resultam
+do foi empregada para encontrar os valores das variaveis que chegam
 a um bom valor para a função objetivo.
 
 Para resolução do problema foi utilizado a linguagem de programação
@@ -83,53 +83,48 @@ que queiramos adotar um Algoritmo Genético deve conter algumas restrições de
 valores possíveis para a função objetivo.
 
 Para este problema adotaremos as seguintes restrições: 
-$x <= 4; y <= 8; z <= 3$: Por causa dos números disponíveis de cada embarcação;
+$x <= 4; y <= 8; z <= 3$: Por causa dos números disponíveis de cada imbarcação;
 $x + y + z <= 10$: Existem apenas 10 capitães e é necessário um para cada embarcação;
 $x + 2y + 3z <= 18$: Existem 18 tripulantes disponíveis, sendo que um é necessário para a jangada,
 dois para a supercanoa e três para arcas.
 
 \section{Representação do Cromossomo}
 
-Os valores das variáveis estão relacionados com a quantidade de embarcações utilizadas,
+Os valores das variáveis estão relacionado com a quantidade de embercações utilizadas,
 portanto os valores que serão utilizados são inteiros. Será utilizado apenas um cromossomo
 composto por três genes.
 
 Uma representação binária será adotada neste experimento, sendo os três primeiros bits
-representando o valor $x$, os próximos quatro bits para representar o valor $y$ e os últimos
-dois bits para representar o valor de $z$, totalizando nove bits.
+representando o valor x, os próximos 5 bits para representar o valor y e os últimos
+2 bits para representar o valor de z, totalizando 9 bits.
 
 \section{Operações}
 
-Serão adotados dois tipos de operações entre os indivíduos da população, a operação de
-Crossover, onde dois indivíduos trocam cromossomos gerando um filho e a operação de 
-Mutação, onde um indivíduo gera um filho.
+Serão adotados dois tipos de operações entre os individuos da população, a operação de
+Crossover, onde dois individuos trocam cromossomos gerando um filho e a operação de 
+Mutação, onde um individuo gera um filho.
 
 O Crossover utilizado será do tipo uniforme, onde uma máscara é criada aleatoriamente,
-funcionando da seguinte forma: se a máscara em uma determinada posição conter o valor '1',
-o filho receberá o valor do pai 1, senão o filho receberá o valor do pai 2.
+funcionando da seguinte forma: se a máscara em uma determinada posição contiver o valor '1',
+o filho receberá o valor do pai 1, senão o filho recebe o valor do pai 2.
 
-A Mutação funcionará da seguinte forma, uma posição do cromossomo é \\
-escolhida aleatoriamente e seu valor é invertido.
+A Mutação funcionará da seguinte forma, uma posição do cromossomo é escolhida aleatoriamente
+e seu valor é invertido.
 
-Estas operações podem gerar filhos impossíveis, ou seja, que não obedecem as restrições
-impostas. Quando isso acontece os genes são arrumados, uma posição aleatória do gene tem seu valor trocado 
+Estas operações podem gerar filhos que impossíveis, ou seja, que não obedecem as restrições
+impostas, quando isso acontece os genes são arrumados, uma posição aleatória do gene tem seu valor trocado 
 até ter um valor possível.
 
-A seleção dos indivíduos para o cruzamento, ou para mutação, é feita através do método da roleta
+A seleção dos individuos para o cruzamento, ou para mutação, é feito através do método da roleta
 viciada. São somados todas as aptidões da população, após isso uma série de intervalos é criado
 de acordo com a porcentagem da aptidão deste individuo entre a somatória das aptidões, sendo esta
 a chance do mesmo ser escolhido para procriar.
 
 \section{Resultados}\label{sec:figs}
 
-Após varias execuções do programa foi possível perceber que os indivíduos sempre\\
-caminham para um mesmo valor. Nas primeiras execuções foram 
-utilizados 1000 indivíduos em 1000 gerações geradas,
-porém foi possível concluir que por volta da 148ª geração as populações já se
-mantinham constantes. A 148ª população pode ser vista na Figure 2.
-
-O tempo que a aplicação demorou para rodar um caso de teste com
-1000 gerações de 1000 indivíduos foi de aproximadamente 5 horas 40 minutos.
+Após varias execuções do programa foi possível perceber que os individuos sempre caminham para um 
+mesmo valor. Nas primeiras execuções foram utilizados 1000 individuos em 1000 gerações geradas,
+porém foi possível concluir que por volta da 148ª geração, a população já se mantinham constante. A 148ª população pode ser vista na Figure 2. O tempo que a aplicação demorou para rodar um caso de teste com 1000 gerações de 1000 indivuos foi de aproximadamente 5 horas 40 minutos.
 
 \begin{figure}
 \centering
@@ -146,7 +141,7 @@ O tempo que a aplicação demorou para rodar um caso de teste com
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{generation1000.ps}
-\caption{Gráfico da 1000ª geração.}
+\caption{Gráfico da primeira geração.}
 \end{figure}
 
 Após executar o programa, o resultado obtido foram os valores, $x = 4, y = 4, z = 2, f(x,y,z) = 680$. Estes são valores muito bons para a solução do problema proposto.
@@ -155,12 +150,12 @@ Após executar o programa, o resultado obtido foram os valores, $x = 4, y = 4, z 
 
 Conseguimos alcançar um ótimo valor para o problema, maximizando a função, porém,
 como o problema é de certa forma simples, a abordagem utilizando Algoritmo Genético
-talvez não seja a melhor. Foi possível visualizar muitos indivíduos que maximizam
+talvez não seja a melhor. Foi possível vizualizar muitos individuos que maximizão
 a função já na primeira geração. Em um problema com maior complexidade, isto poderia
-não ocorrer e o algoritmo conseguiria chegar no valor correto.
+não ocorrer e algoritmo conseguiria chegar no valor correto.
 Foi possível notar que escrever uma boa função objetivo e a representação correta dos 
-cromossomos são a chave para a resposta, mas cada detalhe faz a diferença. Como por exemplo,
-a escolha de como os indivíduos impossíveis são ajustados, neste trabalho, da forma em que
+cromossomos são a chave para a resposta, mas cada detalhe faz a diferença. Como por exemplo
+a escolha de como os individuos impossiveis são ajutados, neste trabalho, da forma em que
 se encontra na final fez toda diferença.
 
 \end{document}
