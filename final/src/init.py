@@ -1,16 +1,12 @@
-from tower import Tower
+from space import Space
 
-points = 0
-towers = []
+space = Space()
+space.read_input('entrada')
 
-def read_input(file):
-    inputs = open(file)
-    points = int(inputs.readline())
-    for line in inputs.readlines():
-    	informations = line.split(' ')
-    	tower = Tower()
-    	tower.name = informations[0]
-    	tower.cost = float(informations[1])
-        tower.points = informations[2:]
+print "Pontos a serem cobertos: %d"%(space.points)
 
-        towers.append(tower)
+if(space.valid()):
+    print 'a valid input'
+else:
+	print 'invalid input'
+
