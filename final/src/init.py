@@ -10,3 +10,4 @@ if(space.valid()):
 else:
 	print 'invalid input'
 
+space.put_ants()

@@ -33,4 +33,8 @@ class Space():
             tower.points = [int(point) for point in informations if point.isdigit()]
 
             self.append_tower(tower)
-
+    
+    def put_ants(self):
+        for tower in self.__towers:
+        	ant = Ant()
+        	tower.append(ant)
