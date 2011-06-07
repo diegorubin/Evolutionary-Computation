@@ -5,7 +5,7 @@ class Tower():
         self.points = []
         self.__ants = []
 
-    def append_ant(self,ant):
+    def put_ant(self,ant):
         ant.route.append(self.name)
-        ant.distance += position.cost
+        ant.distance += self.cost
         self.__ants.append(ant)

@@ -37,4 +37,4 @@ class Space():
     def put_ants(self):
         for tower in self.__towers:
         	ant = Ant()
-        	tower.append(ant)
+        	tower.put_ant(ant)
