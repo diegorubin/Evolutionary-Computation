@@ -11,3 +11,4 @@ else:
 	print 'invalid input'
 
 space.put_ants()
+space.generate_solution()

@@ -5,6 +5,7 @@ class Space():
     def __init__(self):
         self.__towers = []
         self.points = 0
+        self.__inf = []
 
     def append_tower(self, tower):
         self.__towers.append(tower);
@@ -33,8 +34,39 @@ class Space():
             tower.points = [int(point) for point in informations if point.isdigit()]
 
             self.append_tower(tower)
+        self.__init_inf()
     
     def put_ants(self):
+        points = range(1,self.points+1); 
         for tower in self.__towers:
         	ant = Ant()
+        	ant.set_coverage(points)
         	tower.put_ant(ant)
+    
+    def generate_solution(self):
+        while(not self.__all_ants_have_completed()):
+            for tower in self.__towers:
+                for ant in tower.get_ants():
+                	self.__transition(ant)
+
+    def __all_ants_have_completed(self):
+        for tower in self.__towers:
+            for ant in tower.get_ants():
+                if not ant.travel_completed():
+                    return False
+        return True
+    
+    def __init_inf(self):
+        position = 0
+        for tower in self.__towers:
+            tower.set_position = position
+            self.__inf.append([])
+            
+            for i in range(len(self.__towers)):
+                self.__inf[position].append(0)
+        
+            position += 1
+
+    def __transition(self,ant):
+        # TODO: Next step
+        return True

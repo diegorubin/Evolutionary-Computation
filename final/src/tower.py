@@ -9,3 +9,6 @@ class Tower():
         ant.route.append(self.name)
         ant.distance += self.cost
         self.__ants.append(ant)
+
+    def get_ants(self):
+        return self.__ants
