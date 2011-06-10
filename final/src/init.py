@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# file: init.py
+
 from space import Space
 
 space = Space()

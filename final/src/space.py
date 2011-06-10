@@ -4,6 +4,7 @@ from ant   import Ant
 class Space():
     def __init__(self):
         self.__towers = []
+        self.__ants = []
         self.points = 0
         self.__inf = []
 
@@ -41,19 +42,19 @@ class Space():
         for tower in self.__towers:
         	ant = Ant()
         	ant.set_coverage(points)
-        	tower.put_ant(ant)
+        	ant.set_actual_tower(tower)
+        	self.__ants.append(ant)
     
     def generate_solution(self):
         while(not self.__all_ants_have_completed()):
             for tower in self.__towers:
-                for ant in tower.get_ants():
+                for ant in self.__ants:
                 	self.__transition(ant)
 
     def __all_ants_have_completed(self):
-        for tower in self.__towers:
-            for ant in tower.get_ants():
-                if not ant.travel_completed():
-                    return False
+        for ant in self.__ants:
+            if not ant.travel_completed():
+                return False
         return True
     
     def __init_inf(self):
