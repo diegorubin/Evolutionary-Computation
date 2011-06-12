@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from tower import Tower
-from ant   import Ant
+from random import random
+from tower  import Tower
+from ant    import Ant
+from copy   import copy
 
 class Space():
     def __init__(self):
@@ -48,21 +50,24 @@ class Space():
         self.__generate_pheromones()
     
     def put_ants(self):
-        points = range(1,self.points+1); 
+        points = range(1,self.points+1) 
+        position = 0
         for tower in self.__towers:
         	ant = Ant()
-        	ant.set_coverage(points)
-        	ant.possible_towers = self.__towers
+        	ant.position = position
+        	ant.set_coverage(copy(points))
+        	ant.possible_towers = copy(self.__towers)
         	ant.set_actual_tower(tower)
         	self.__ants.append(ant)
+        	position += 1
     
     def generate_solution(self):
-        self.__transition(self.__ants[0])
         while(not self.__all_ants_have_completed()):
             for ant in self.__ants:
-            	pass
-                #self.__transition(ant)
-
+                self.__transition(ant)
+        solutions = sorted(self.__ants, key=lambda ant: ant.distance)
+        print "Melhor solução com custo %d"%(solutions[0].distance)
+        print [t.name for t in solutions[0].route]
     def __all_ants_have_completed(self):
         for ant in self.__ants:
             if not ant.travel_completed():
@@ -89,11 +94,18 @@ class Space():
 
 
     def __transition(self,ant):
+        if ant.travel_completed():
+        	return 
         position = ant.get_actual_tower().position
         _sum = self.__sum(ant)
-        soma_probabilidades = .0
+        probabilities_begin = .0
+        probabilities_end = .0
+        _range = random()
         for tower in ant.possible_towers:
-        	soma_probabilidades += (self.__partial(position,tower.position)/_sum)
+            probabilities_begin = probabilities_end 
+            probabilities_end += (self.__partial(position,tower.position)/_sum)
+            if((probabilities_begin < _range) and (_range <= probabilities_end)):
+                ant.set_actual_tower(tower)
 
     def __partial(self,i,j):
         p = self.pheromones[i][j]**self.alfa

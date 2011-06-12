@@ -5,6 +5,7 @@ class Ant():
         self.__coverage = []
         self.__actual_tower = None
         self.possible_towers = []
+        self.position = -1
 
     def set_coverage(self, points):
         self.__coverage = points
@@ -14,7 +15,6 @@ class Ant():
 
     def set_actual_tower(self,tower):
         self.__actual_tower = tower
-        self.__coverage.append(tower)
         self.distance += tower.cost
         self.route.append(tower)
         self.__update_coverage()
@@ -26,7 +26,7 @@ class Ant():
     def __update_coverage(self):
         for point in self.__actual_tower.points:
             try:
-        	    self.__coverage.remove(point)
+                self.__coverage.remove(point)
             except:
                 pass
     
