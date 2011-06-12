@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # file: init.py
 
 from space import Space
@@ -13,5 +14,8 @@ if(space.valid()):
 else:
 	print 'invalid input'
 
+print "Inicializando Formigas"
 space.put_ants()
+
+print "Gerando Soluções"
 space.generate_solution()
