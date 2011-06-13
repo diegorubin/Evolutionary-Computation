@@ -12,8 +12,11 @@ class Space():
         self.pheromones = []
         self.distances = []
 
-        self.alfa = 0.5
-        self.beta = 0.5
+        self.alfa = 2.0
+        self.beta = 2.0
+        self.p = 0.3
+        self.q = 1.0
+
 
     def append_tower(self, tower):
         self.__towers.append(tower)
@@ -29,6 +32,7 @@ class Space():
                     pass
             if(len(points) == 0):
             	break
+        print points
         return (len(points) == 0)
 
     def read_input(self, input_file):
@@ -57,6 +61,7 @@ class Space():
         	ant.position = position
         	ant.set_coverage(copy(points))
         	ant.possible_towers = copy(self.__towers)
+        	ant.route = []
         	ant.set_actual_tower(tower)
         	self.__ants.append(ant)
         	position += 1
@@ -65,9 +70,21 @@ class Space():
         while(not self.__all_ants_have_completed()):
             for ant in self.__ants:
                 self.__transition(ant)
+
+    def best_solution(self):
         solutions = sorted(self.__ants, key=lambda ant: ant.distance)
-        print "Melhor solução com custo %d"%(solutions[0].distance)
-        print [t.name for t in solutions[0].route]
+        return solutions[0]
+
+    def update_pheromones(self):
+        total = len(self.pheromones)
+        for i in range(total):
+            for j in range(total):
+            	self.pheromones[i][j] = (1-self.p)*self.pheromones[i][j]
+        for ant in self.__ants:
+            for i in range(len(ant.route)-1):
+            	self.pheromones[ant.route[i].position][ant.route[i+1].position] += self.q/ant.distance
+
+
     def __all_ants_have_completed(self):
         for ant in self.__ants:
             if not ant.travel_completed():

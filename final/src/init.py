@@ -12,10 +12,22 @@ print "Pontos a serem cobertos: %d"%(space.points)
 if(space.valid()):
     print 'a valid input'
 else:
-	print 'invalid input'
+    print 'invalid input'
+    quit()	
 
-print "Inicializando Formigas"
-space.put_ants()
 
-print "Gerando Soluções"
-space.generate_solution()
+for i in range(100):
+    print "Inicializando Formigas"
+    space.put_ants()
+
+    print "Gerando Soluções"
+    space.generate_solution()
+    solution = space.best_solution()
+    
+    print "Melhor solução"
+    print "Valor %f"%(solution.distance)
+    print [t.name for t in solution.route]
+    
+    print "Atualização dos Feromonios"
+    space.update_pheromones()
+
