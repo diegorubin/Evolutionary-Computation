@@ -13,8 +13,8 @@ class Space():
         self.distances = []
 
         self.alfa = 2.0
-        self.beta = 2.0
-        self.p = 0.3
+        self.beta = 1.0
+        self.p = 0.2
         self.q = 1.0
 
 
@@ -107,7 +107,7 @@ class Space():
         a = len(origin.points)
         b = len([point for point in origin.points if point in destiny.points])
 
-        return int(destiny.cost**(a - b + 1))
+        return int(((origin.cost+destiny.cost)/2)*(a - b + 1))
 
 
     def __transition(self,ant):

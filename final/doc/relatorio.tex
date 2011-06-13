@@ -30,16 +30,27 @@
 \end{abstract}
 
 \begin{resumo} 
+ Este artigo tem como objetivo mostrar os
+ resultados obtidos na utilização do algoritmo
+ Ant System para a resolução de um problema
+ de otimização.
 \end{resumo}
 
 
 \section{Introdução}
 
+Problemas de otimização são frequentes no nosso coditiano e exitems 
+diversas formas de encontrarmos soluções para os mesmos. Neste artigo
+será apresentado um exemplo de solução para um problema de otimização
+utilizando um algoritmo chamado Ant System.
+O algoritmo foi implementado em uma linguagem chamada Python e o 
+código gerado pelo ser encontrado em http://github.com/diegorubin/Evolutionary-Computation/tree/master/final/src.
+
 \section{O Problema} \label{sec:firstpage}
 
 O Problema que iremos abordar é o seguinte:
 
-Você possui uma empresa reconhecida na area de otimizacao e algoritmos. 
+Você possui uma empresa reconhecida na área de otimizacao e algoritmos. 
 Um dia e chamado por telefone para uma conversa urgente com um grupo 
 de pessoas que está trabalhando em um grande projeto: “Salvar o mundo”. 
 Eles lhe informam que trabalham para um ministério da ONU sob 
@@ -66,13 +77,44 @@ O objetivo e determinar os lugares de instalação dos sistemas de emissão
 de tal forma que toda a Terra seja coberta pelo dióxido de enxofre, e ao 
 mesmo tempo se minimize o custo de instalação dos sistemas de emissão. 
 O espaco contínuo a ser coberto (a superfície da Terra) será discretizado, 
-de tal forma que temos pontos que devem ser cobertos (veja Figura). 
+de tal forma que temos pontos que devem ser cobertos. 
 
-\section{Algortimo}
+\section{Algortimo e Adaptações}
 
+O algortimo que iremos utilizar para obter um bom resultado para o problema
+descrito é um algoritmo do tipo Ant Colony Optimization chamado Ant System.
+Ele foi proposto por Dorigo e é muito utilizado em problemas onde o objetivo
+é encontrar o rotas.
 
-\section{Restrições}
+Algumas adptações serão feitas para podemos utilizar este algoritmo para
+resolvermos o problema. O nosso objetivo é encontrar o menor custo para 
+construirmos as torres para cobrir todos os pontos. A principio utilizaremos
+o custo de cada torre em substituição a distancias, utilizadas no problemas
+onde o algoritmo é aplicado. Porém, somente esta substituição não irá
+colaborar muito para encontrarmos um valor ótimo ou bom para a função 
+objetivo, pois as distancias entre as torres serão iguais entre si.
 
+Outra adaptação que será utilizada será baseada no fato que as torres podem
+cobrir pontos iguais. Então iremos alterar a heuristica utilizada para calcular
+as distancias entre as torres utilizando o fator obtido pelos pontos cobertos 
+iguais entre as torres. Por exemplo, se a torre S1 cobrir as pontos 1, 2 e 3 e 
+e a torre S2 cobrir os pontos 2, 3 e 4 a distancia entre as duas torres
+será dada por $((a+b)/2)*(c+1)$ onde $a$ e $b$ são os custos de construção de 
+cada torre e $c$ o número de pontos cobertos em comum. Esta medida é tomada
+para que não seja utilizada somente o custo como base de escolha e acabe escolhendo
+torres que cobrem pontos já cobertos.
+
+\section{Atualização dos Ferormonios}
+
+Uma das fases mais importantes do algoritmo Ant System é a chamada Atualização
+de Ferormonios. Enquanto as formigas caminham elas liberar hormonios que funcionam
+como uma espécie de guia para outras formigas.
+
+\section{Introdução dos Dados}
+
+O programa criado para encontrar um valor ótimo ou tem como entrada de dados
+um arquivo texto, este deve conter na primeira linha o número de pontos que
+devem ser cobertos pelas torres.
 
 \section{Resultados}\label{sec:figs}
 

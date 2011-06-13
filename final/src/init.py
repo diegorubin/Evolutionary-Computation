@@ -5,13 +5,11 @@
 from space import Space
 
 space = Space()
+print "Lendo Entrada"
 space.read_input('entrada')
 
-print "Pontos a serem cobertos: %d"%(space.points)
-
-if(space.valid()):
-    print 'a valid input'
-else:
+print "Validando Entrada"
+if(not space.valid()):
     print 'invalid input'
     quit()	
 
