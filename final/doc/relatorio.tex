@@ -129,7 +129,7 @@ aplicação.
 
 O algoritmo permite a variação de alguns parametros para melhor obtenção do resultados.
 Um deles é a relação probabilistica entre os fatores heuristicos ou os hormonios depositados
-pelas formigas, $\alfa$ e $\beta$. Esta relação é importante para que as formigas não fiquem
+pelas formigas, $\alpha$ e $\beta$. Esta relação é importante para que as formigas não fiquem
 muito dependentes dos hormonios ou da decisão local de qual caminho seguir baseado
 apenas na menor distancia.
 
@@ -142,20 +142,33 @@ Foi utilizado para testes um gerador de entradas.
 
 No primeiro caso de testes, foi gerado um caso com 20 pontos a serem cobertos
 pelas antenas. A tabela abaixo exibe os testes realizados com esses dados.
+\begin{table}
 
-\begin(tabular){|$\alfa$|$\beta$|$p$|Valor Recorrente(Aproximado)|Número de Execuções|}
-  \hline
-  1 & 2 & 0.2 & 40 & 10\\
-  1 & 1 & 0.2 & 40 & 10\\
-  2 & 1 & 0.2 & 52 & 10\\
-  1 & 2 & 0.5 & 48 & 10\\
-  1 & 1 & 0.5 & 40 & 10\\
-  2 & 1 & 0.5 & 40 & 10\\
-  1 & 2 & 0.8 & 52 & 10\\
-  1 & 1 & 0.8 & 47 & 10\\
-  2 & 1 & 0.8 & 40 & 10\\
-  \hline
-\end(tabular)
+\centering
+
+\caption{Tabela com resultado obtidos}
+\begin{tabular}{cccc}
+
+\hline
+$\alpha$ & $\beta$ & $p$ & Valor Recorrente(Aproximado)\\
+
+\hline
+\hline
+
+1 & 2 & 0.2 & 40 \\
+1 & 1 & 0.2 & 40 \\
+2 & 1 & 0.2 & 52 \\
+1 & 2 & 0.5 & 48 \\
+1 & 1 & 0.5 & 40 \\
+2 & 1 & 0.5 & 40 \\
+1 & 2 & 0.8 & 52 \\
+1 & 1 & 0.8 & 47 \\
+2 & 1 & 0.8 & 40 \\
+
+\hline
+\end{tabular}
+\label{tab}
+\end{table}
 O caso 5 demora mais tempo para convergir, o primeiro já converge e estaguina rapidamente.
 \section{Conclusão}
 
