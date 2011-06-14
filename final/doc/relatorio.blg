@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: relatorio.aux
+The style file: sbc.bst
+Database file #1: relatorio.bib
+Warning--entry type for "xavier" isn't style-file defined
+--line 8 of file relatorio.bib
+You've used 2 entries,
+            1935 wiz_defined-function locations,
+            481 strings with 3867 characters,
+and the built_in function-call counts, 527 in all, are:
+= -- 51
+> -- 14
+< -- 2
++ -- 4
+- -- 4
+* -- 33
+:= -- 107
+add.period$ -- 5
+call.type$ -- 2
+change.case$ -- 12
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 23
+empty$ -- 36
+format.name$ -- 6
+if$ -- 96
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 1
+newline$ -- 12
+num.names$ -- 6
+pop$ -- 7
+preamble$ -- 1
+purify$ -- 12
+quote$ -- 0
+skip$ -- 22
+stack$ -- 0
+substring$ -- 24
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 0
+while$ -- 4
+width$ -- 0
+write$ -- 25
+(There was 1 warning)
