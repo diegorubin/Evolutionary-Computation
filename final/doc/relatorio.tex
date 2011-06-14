@@ -10,7 +10,7 @@
      
 \sloppy
 
-\title{Resolução de um Problema NP-Completo utilizando ACO}
+\title{Resolução de um Problema de Otimização utilizando \\o Algoritmo Ant System}
 
 \author{Diego Rubin\inst{1}}
 
@@ -27,6 +27,9 @@
 \maketitle
 
 \begin{abstract}
+ This article aims to show the results 
+ obtained from use of the Ant System algorithm 
+ for solving an optimization problem. 
 \end{abstract}
 
 \begin{resumo} 
@@ -39,10 +42,10 @@
 
 \section{Introdução}
 
-Problemas de otimização são frequentes no nosso coditiano e exitems 
+Problemas de otimização são frequentes no nosso coditiano e exitem 
 diversas formas de encontrarmos soluções para os mesmos. Neste artigo
 será apresentado um exemplo de solução para um problema de otimização
-utilizando um algoritmo chamado Ant System.
+utilizando um algoritmo chamado Ant System proposto por M. Dorigo e V. Maniezzo.
 O algoritmo foi implementado em uma linguagem chamada Python e o 
 código gerado pelo ser encontrado em http://github.com/diegorubin/Evolutionary-Computation/tree/master/final/src.
 
@@ -82,22 +85,21 @@ de tal forma que temos pontos que devem ser cobertos.
 \section{Algortimo e Adaptações}
 
 O algortimo que iremos utilizar para obter um bom resultado para o problema
-descrito é um algoritmo do tipo Ant Colony Optimization chamado Ant System.
-Ele foi proposto por Dorigo e é muito utilizado em problemas onde o objetivo
-é encontrar o rotas.
+descrito é um algoritmo do tipo Ant Colony Optimization(ACO) chamado Ant System.
+Ele foi proposto por M. Dorigo e V. Maniezzo e é muito utilizado em 
+problemas onde o objetivo é encontrar o rotas.
 
-Algumas adptações serão feitas para podemos utilizar este algoritmo para
+Algumas adaptações serão feitas para podemos utilizar este algoritmo para
 resolvermos o problema. O nosso objetivo é encontrar o menor custo para 
 construirmos as torres para cobrir todos os pontos. A principio utilizaremos
-o custo de cada torre em substituição a distancias, utilizadas no problemas
-onde o algoritmo é aplicado. Porém, somente esta substituição não irá
-colaborar muito para encontrarmos um valor ótimo ou bom para a função 
-objetivo, pois as distancias entre as torres serão iguais entre si.
-
-Outra adaptação que será utilizada será baseada no fato que as torres podem
-cobrir pontos iguais. Então iremos alterar a heuristica utilizada para calcular
-as distancias entre as torres utilizando o fator obtido pelos pontos cobertos 
-iguais entre as torres. Por exemplo, se a torre S1 cobrir as pontos 1, 2 e 3 e 
+o custo de cada torre em substituição a distâncias que comumente é utilizado no problemas
+onde o algoritmo é aplicado. Porém somente esta substituição não irá
+colaborar muito para encontrarmos um valor bom ou ótimo para a função 
+objetivo, pois as distâncias entre as torres serão iguais entre si. Outra
+adaptação que será utilizada será baseada no fato que as torres podem
+cobrir pontos iguais, então iremos alterar a heurística utilizada para calcular
+as distâncias entre as torres utilizando o fator obtido pelos pontos iguais que são 
+cobertos entre as torres. Por exemplo, se a torre S1 cobrir as pontos 1, 2 e 3 e 
 e a torre S2 cobrir os pontos 2, 3 e 4 a distancia entre as duas torres
 será dada por $((a+b)/2)*(c+1)$ onde $a$ e $b$ são os custos de construção de 
 cada torre e $c$ o número de pontos cobertos em comum. Esta medida é tomada
@@ -106,18 +108,61 @@ torres que cobrem pontos já cobertos.
 
 \section{Atualização dos Ferormonios}
 
-Uma das fases mais importantes do algoritmo Ant System é a chamada Atualização
+Uma das fases mais importantes do algoritmo Ant System é a Atualização
 de Ferormonios. Enquanto as formigas caminham elas liberar hormonios que funcionam
-como uma espécie de guia para outras formigas.
+como uma espécie de guia para outras formigas se não houver um uma disperção do hormonio
+as formigas podem tender a um caminho que não é o bom ou ótimo. A regra de atualização
+é dada por $(1-p)\tau_{ij} + \sum_{k=1}^{m}\delta\tau_{ij}^{(k)}$. Após gerar uma
+solução, ou seja, após todas formigas chegarem ao seu destino a matriz com 
+o valor do depósito em cada aresta é atualizado utilizando a regra descrita anteriormente.
 
-\section{Introdução dos Dados}
+\section{Entrada dos Dados}
 
-O programa criado para encontrar um valor ótimo ou tem como entrada de dados
-um arquivo texto, este deve conter na primeira linha o número de pontos que
-devem ser cobertos pelas torres.
+O programa criado tem como entrada de dados um arquivo texto. 
+Este deve conter na primeira linha o número de pontos que devem ser cobertos pelas torres e
+as linhas seguintes devem conter o nome da torre, o seu custo e os pontos que
+são cobertos por ela. Um arquivo que não estiver formatado desta forma poderar
+gerar erros, assim não chegando a um resultado válido ou o término prematuro da
+aplicação.
 
-\section{Resultados}\label{sec:figs}
+\section{Parametros do Algoritmo}
 
+O algoritmo permite a variação de alguns parametros para melhor obtenção do resultados.
+Um deles é a relação probabilistica entre os fatores heuristicos ou os hormonios depositados
+pelas formigas, $\alfa$ e $\beta$. Esta relação é importante para que as formigas não fiquem
+muito dependentes dos hormonios ou da decisão local de qual caminho seguir baseado
+apenas na menor distancia.
+
+Outro parametro importante é o fator de evaporação dos hormonios $p$, que também serve
+para que o algoritmo não entre em estagnação muito rápido.
+
+\section{Resultados}
+
+Foi utilizado para testes um gerador de entradas. Este gerador pode ser obtido no 
+endereço <ENDERECO>.
+
+No primeiro caso de testes, foi gerado um caso com 20 pontos a serem cobertos
+pelas antenas. A tabela <NOME DA TABELA> exibe os testes realizados com esses dados.
+
+\begin(tabular){|$\alfa$|$\beta$|$p$|Valor Recorrente(Aproximado)|Número de Execuções|}
+  \hline
+  1 & 2 & 0.2 & 40 & 10\\
+  1 & 1 & 0.2 & 40 & 10\\
+  2 & 1 & 0.2 & 52 & 10\\
+  1 & 2 & 0.5 & 48 & 10\\
+  1 & 1 & 0.5 & 40 & 10\\
+  2 & 1 & 0.5 & 40 & 10\\
+  1 & 2 & 0.8 & 52 & 10\\
+  1 & 1 & 0.8 & 47 & 10\\
+  2 & 1 & 0.8 & 40 & 10\\
+  \hline
+\end(tabular)
+O caso 5 demora mais tempo para convergir, o primeiro já converge e estaguina rapidamente.
 \section{Conclusão}
+
+De acordo com os resultados obtidos, é possível notar que
+o Ant System consegue sempre encontrar um valor bom para 
+a função objetivo, porém muitas vezes ele acaba não encontrando 
+o valor ótimo.
 
 \end{document}

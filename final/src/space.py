@@ -12,9 +12,9 @@ class Space():
         self.pheromones = []
         self.distances = []
 
-        self.alfa = 2.0
-        self.beta = 1.0
-        self.p = 0.2
+        self.alfa = 1.0
+        self.beta = 2.0
+        self.p = 0.8
         self.q = 1.0
 
 
